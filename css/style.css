@@ -126,14 +126,14 @@ body {
 }
 
 .logo-mark {
-  width: 72px;
-  height: 72px;
+  width: 100px;
+  height: 100px;
   object-fit: contain;
 }
 
 .brand-name {
-  font-family: 'NordiquePro-Regular', sans-serif;  font-weight: 700;
-  font-size: 13px;
+  font-family: 'Satoshi', sans-serif; font-weight: 700;
+  font-size: 25px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--white);
