@@ -6,11 +6,8 @@
 /* -----------------------------------------
    Custom cursor
 ----------------------------------------- */
-const cursor = document.getElementById('cursor');
-
-document.addEventListener('mousemove', function(e) {
-  cursor.style.left = (e.clientX - 3) + 'px';
-  cursor.style.top  = (e.clientY - 3) + 'px';
+const cursor = document.addEventListener('mousemove', function(e) {
+  cursor.style.transform = 'translate(' + (e.clientX - 3) + 'px, ' + (e.clientY - 3) + 'px)';
 });
 
 /* -----------------------------------------
