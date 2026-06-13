@@ -132,8 +132,7 @@ body {
 }
 
 .brand-name {
-  font-family: var(--font);
-  font-weight: 700;
+  font-family: 'NordiquePro-Regular', sans-serif;  font-weight: 700;
   font-size: 13px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
