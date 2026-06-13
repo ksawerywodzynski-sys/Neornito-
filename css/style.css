@@ -91,7 +91,7 @@ body {
   pointer-events: none;
   z-index: 9999;
   mix-blend-mode: difference;
-  transition: transform 0.2s ease;
+  transition: none;
 }
 
 #cursor.expand {
@@ -262,4 +262,8 @@ body {
   .bottom-strip {
     padding: 16px 24px;
   }
+@media (hover: none) {
+  #cursor { display: none; }
+  body { cursor: auto; }
+}
 }
