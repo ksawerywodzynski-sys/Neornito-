@@ -188,7 +188,6 @@ nav.s {
   align-items: center;
   justify-content: center;
   pointer-events: none;
-  
 }
 
 .hero-img-slot .slot {
@@ -200,7 +199,7 @@ nav.s {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: px;
+  gap: 12px;
 }
 
 .hero-img-slot .slot span {
