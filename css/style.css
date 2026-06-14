@@ -55,7 +55,7 @@ body {
 .orb-1 {
   width: 65vw;
   height: 65vw;
-  background: radial-gradient(circle, #0c463f 0%, transparent 70%);
+  background: radial-gradient(circle, #167a6f 0%, transparent 70%);
   top: -15vw;
   right: -15vw;
   animation: drift1 18s ease-in-out infinite alternate;
@@ -64,7 +64,7 @@ body {
 .orb-2 {
   width: 55vw;
   height: 55vw;
-  background: radial-gradient(circle, #224b31 0%, transparent 70%);
+  background: radial-gradient(circle, #3f5f39 0%, transparent 70%);
   bottom: -10vw;
   left: -10vw;
   animation: drift2 22s ease-in-out infinite alternate;
@@ -73,7 +73,7 @@ body {
 .orb-3 {
   width: 40vw;
   height: 40vw;
-  background: radial-gradient(circle, #365240 0%, transparent 70%);
+  background: radial-gradient(circle, #5b8d6c 0%, transparent 70%);
   top: 30%;
   left: 25%;
   animation: drift3 14s ease-in-out infinite alternate;
