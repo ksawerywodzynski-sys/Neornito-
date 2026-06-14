@@ -171,7 +171,7 @@ nav.s {
    Hero
 ----------------------------------------- */
 .hero {
-  min-height: 100vh;
+  min-height: 130vh;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -191,7 +191,7 @@ nav.s {
 }
 
 .hero-img-slot .slot {
-  width: 55%;
+  width: 100%;
   aspect-ratio: 1;
   border: 1px dashed rgba(255, 255, 255, 0.08);
   border-radius: 4px;
