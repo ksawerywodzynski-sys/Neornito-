@@ -1,13 +1,22 @@
 /* =========================================
-   NEORNITO — Coming Soon
+   NEORNITO — Main Site
    main.js
    ========================================= */
 
 /* -----------------------------------------
-   Custom cursor
+   Custom cursor (GPU-accelerated)
 ----------------------------------------- */
-const cursor = document.addEventListener('mousemove', function(e) {
+const cursor = document.getElementById('cursor');
+
+document.addEventListener('mousemove', function(e) {
   cursor.style.transform = 'translate(' + (e.clientX - 3) + 'px, ' + (e.clientY - 3) + 'px)';
+});
+
+/* -----------------------------------------
+   Sticky nav on scroll
+----------------------------------------- */
+window.addEventListener('scroll', function() {
+  document.getElementById('nav').classList.toggle('s', window.scrollY > 40);
 });
 
 /* -----------------------------------------
@@ -36,7 +45,7 @@ const cursor = document.addEventListener('mousemove', function(e) {
       d[i]     = v;
       d[i + 1] = v;
       d[i + 2] = v;
-      d[i + 3] = 18;
+      d[i + 3] = 16;
     }
 
     ctx.putImageData(img, 0, 0);

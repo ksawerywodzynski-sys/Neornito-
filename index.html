@@ -1,41 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
-  <link rel="apple-touch-icon" href="img/favicon-32x32.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Neornito — Coming Soon</title>
-  <meta name="description" content="Wildlife research equipment. Launching 2025.">
+  <title>Neornito — Wildlife Research Equipment</title>
+  <meta name="description" content="Precision wildlife research equipment built for the field. Ornithology, ecology, and field research instruments.">
+  <link rel="icon" type="image/png" href="img\favicon-32x32.png">
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
   <canvas id="grain"></canvas>
 
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
+  <div class="o1 orb"></div>
+  <div class="o2 orb"></div>
+  <div class="o3 orb"></div>
 
   <div id="cursor"></div>
 
-  <main class="stage">
-    <div class="logo-lockup">
-      <img class="logo-mark" src="img/LogoT.png" alt="Neornito">
-      <span class="brand-name">Neornito</span>
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nl">
+      <img src="img/logoT.png" alt="Neornito">
+      <span>Neornito</span>
     </div>
-    <h1 class="headline">
-      Coming<br><span>soon.</span>
-    </h1>
-    <p class="sub">Wildlife research equipment — launching 2026</p>
-  </main>
+    <ul class="nm">
+      <li><a href="#">Products</a></li>
+      <li><a href="#">Research</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <button class="nc">Shop now</button>
+  </nav>
 
-  <div class="bottom-strip">
-    <span class="strip-label"><span class="strip-dot"></span>In development</span>
-    <span class="strip-label">neornito.com</span>
-    <span class="strip-label">Wrocław · PL</span>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-img-slot">
+      <div class="slot">
+        <img src="img/Asset1.jpg" alt="Neornito">
+      </div>
+    </div>
+    <p class="htag">Wildlife research equipment — Wrocław, PL</p>
+    <h1 class="ht">Precision<br>for the <em>field.</em></h1>
+    <div class="hrow">
+      <p class="hdesc">Instruments built for ornithologists, ecologists, and field researchers operating in uncontrolled environments.</p>
+      <div class="hbtns">
+        <button class="bp">View equipment</button>
+        <button class="bg">Our story</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="divrow">
+    <span class="divlabel">Selected instruments</span>
+    <div class="divline"></div>
+    <span class="divlabel">2025 catalogue</span>
   </div>
+
+  <!-- PRODUCTS -->
+  <section class="products">
+    <div class="pc">
+      <span class="pnum">NRN — 001</span>
+      <div class="pslot">
+        <i class="ti ti-camera" aria-hidden="true"></i>
+        <span>Product render</span>
+      </div>
+      <div class="pname">Field tracker</div>
+      <div class="pspec">GPS · 72h battery · IP67<br>Passive RFID compatible</div>
+      <div class="pprice">€ —,—</div>
+      <button class="pbuy">Order now</button>
+    </div>
+    <div class="pc">
+      <span class="pnum">NRN — 002</span>
+      <div class="pslot">
+        <i class="ti ti-camera" aria-hidden="true"></i>
+        <span>Product render</span>
+      </div>
+      <div class="pname">Acoustic logger</div>
+      <div class="pspec">24-bit ADC · 96 kHz SR<br>Weatherproof enclosure</div>
+      <div class="pprice">€ —,—</div>
+      <button class="pbuy">Order now</button>
+    </div>
+    <div class="pc">
+      <span class="pnum">NRN — 003</span>
+      <div class="pslot">
+        <i class="ti ti-camera" aria-hidden="true"></i>
+        <span>Product render</span>
+      </div>
+      <div class="pname">Ring applicator</div>
+      <div class="pspec">Aluminium alloy · 6 sizes<br>Single-hand ergonomic grip</div>
+      <div class="pprice">€ —,—</div>
+      <button class="pbuy">Order now</button>
+    </div>
+  </section>
+
+  <!-- FULL WIDTH IMAGE SLOT -->
+  <div class="imgfull">
+    <i class="ti ti-photo" aria-hidden="true"></i>
+    <span>Full-width lifestyle image — field environment</span>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about">
+    <div class="about-left">
+      <p class="alabel">About Neornito</p>
+      <h2 class="atitle">Equipment that earns<br>its place in the field.</h2>
+      <p class="abody">Neornito was founded by researchers who grew frustrated with instruments designed for labs and sold to fieldworkers. Every product we make is tested in real environments — wind, rain, mud, and cold — before it reaches you.</p>
+    </div>
+    <div class="about-right">
+      <div>
+        <p class="alabel">Our principle</p>
+        <p class="abody">High margin, low volume. We make fewer things, better. No compromises on materials, no padding on specs.</p>
+      </div>
+      <div class="astat">
+        <div class="astat-num">100%</div>
+        <div class="astat-desc">Field-tested before release</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="ftop">
+      <div class="fcol fcol--brand">
+        <div class="flogo">
+          <img src="img/logoT.png" alt="Neornito">
+          <span>Neornito</span>
+        </div>
+        <p class="fdesc">Wildlife research equipment. Built for the field, not the catalogue.</p>
+      </div>
+      <div class="fcol">
+        <p class="fhead">Navigate</p>
+        <div class="flinks">
+          <a href="#">Products</a>
+          <a href="#">Research notes</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+      <div class="fcol">
+        <p class="fhead">Legal</p>
+        <div class="flinks">
+          <a href="#">Privacy policy</a>
+          <a href="#">Shipping &amp; returns</a>
+          <a href="#">Terms of service</a>
+        </div>
+      </div>
+      <div class="fcol">
+        <p class="fhead">Socials</p>
+        <div class="fsocials">
+          <a href="#"><i class="ti ti-brand-instagram" aria-hidden="true"></i> Instagram</a>
+          <a href="#"><i class="ti ti-brand-linkedin" aria-hidden="true"></i> LinkedIn</a>
+          <a href="#"><i class="ti ti-brand-x" aria-hidden="true"></i> X / Twitter</a>
+          <a href="#"><i class="ti ti-brand-youtube" aria-hidden="true"></i> YouTube</a>
+        </div>
+      </div>
+    </div>
+    <div class="fbot">
+      <span class="fcopy"><span class="fdot"></span>© 2025 Neornito. All rights reserved.</span>
+      <span class="fcopy">Wrocław, Poland · neornito.com</span>
+    </div>
+  </footer>
 
   <script src="js/main.js"></script>
 </body>
