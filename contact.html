@@ -14,14 +14,21 @@ canvas#grain{position:fixed;inset:0;pointer-events:none;z-index:5;opacity:0.5}
 @keyframes d3{from{transform:translate(0,0)}to{transform:translate(4vw,6vw)}}
 #cursor{width:6px;height:6px;background:var(--w);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;mix-blend-mode:difference}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:24px 56px;transition:background 0.4s,border-color 0.4s;border-bottom:1px solid transparent}
-nav.s{background:rgba(8,8,8,0.82);backdrop-filter:blur(14px);border-color:var(--bdr)}
-.nl{display:flex;align-items:center;gap:14px}
-.nl img{width:26px;height:26px;object-fit:contain}
-.nl span{font-weight:700;font-size:12px;letter-spacing:0.28em;text-transform:uppercase}
-.nm{display:flex;gap:36px;list-style:none}
-.nm a{font-size:12px;color:var(--dim2);text-decoration:none;letter-spacing:0.06em;transition:color 0.2s}
-.nm a:hover,.nm a.active{color:var(--w)}
+<!-- NAV -->
+  <nav id="nav">
+    <div class="nl">
+      <img src="img/logoT.png" alt="Neornito">
+      <span>Neornito</span>
+    </div>
+    <ul class="nm">
+  <li><a href="index.html">Home</a></li>
+  <li><a href="products.html">Products</a></li>
+  <li><a href="about.html">About</a></li>
+  <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nc">Shop now</button>
+  </nav>
+
 
 /* full height centred stage */
 .page{
