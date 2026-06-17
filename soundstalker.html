@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neornito — SoundStalker PAM</title>
+  <meta name="description" content="SoundStalker — Passive acoustic monitor optimised for the human hearing spectrum. Compact, field-ready, SIM-enabled. By Neornito.">
+  <link rel="icon" type="image/png" href="img/favicon-32x32.png">
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+
+    /* -----------------------------------------
+       PRODUCT HERO
+    ----------------------------------------- */
+    .prod-hero {
+      position: relative;
+      z-index: 10;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--bdr);
+    }
+
+    .prod-hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 140px 56px 80px;
+      border-right: 1px solid var(--bdr);
+    }
+
+    .prod-tag {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: ru 0.8s 0.2s forwards;
+    }
+
+    .prod-name {
+      font-weight: 700;
+      font-size: clamp(52px, 6.5vw, 96px);
+      line-height: 0.88;
+      letter-spacing: -0.04em;
+      opacity: 0;
+      animation: ru 1s 0.35s forwards;
+    }
+
+    .prod-name em {
+      display: block;
+      font-style: normal;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(245, 245, 240, 0.2);
+    }
+
+    .prod-tagline {
+      font-size: 13px;
+      color: var(--dim2);
+      line-height: 1.75;
+      max-width: 340px;
+      letter-spacing: 0.02em;
+      margin-top: 36px;
+      opacity: 0;
+      animation: ru 0.9s 0.55s forwards;
+    }
+
+    /* colour selector */
+    .colour-wrap {
+      margin-top: 52px;
+      opacity: 0;
+      animation: ru 0.9s 0.7s forwards;
+    }
+
+    .colour-label {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: 16px;
+    }
+
+    .colour-selected-name {
+      font-size: 12px;
+      color: var(--w);
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+      transition: opacity 0.2s;
+    }
+
+    .colour-swatches {
+      display: flex;
+      gap: 12px;
+    }
+
+    .swatch {
+      width: 36px;
+      height: 36px;
+      border-radius: 2px;
+      cursor: none;
+      border: 1px solid transparent;
+      transition: border-color 0.2s, transform 0.2s;
+      position: relative;
+    }
+
+    .swatch:hover { transform: scale(1.08); }
+    .swatch.active { border-color: var(--w); }
+    .swatch.marsh  { background: #6b7c5a; }
+    .swatch.dusk   { background: #8c7355; }
+    .swatch.slate  { background: #7a7a7a; }
+
+    /* buy row */
+    .buy-row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-top: 48px;
+      padding-top: 40px;
+      border-top: 1px solid var(--bdr);
+      opacity: 0;
+      animation: ru 0.9s 0.85s forwards;
+    }
+
+    .buy-price {
+      font-weight: 700;
+      font-size: 28px;
+      letter-spacing: -0.02em;
+    }
+
+    .buy-btn {
+      font-size: 12px;
+      color: var(--b);
+      background: var(--w);
+      border: none;
+      padding: 14px 36px;
+      letter-spacing: 0.08em;
+      cursor: none;
+      transition: opacity 0.2s;
+    }
+
+    .buy-btn:hover { opacity: 0.84; }
+
+    .buy-note {
+      font-size: 11px;
+      color: var(--dim);
+      letter-spacing: 0.06em;
+      line-height: 1.6;
+    }
+
+    /* right — image */
+    .prod-hero-right {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #050505;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    .prod-hero-right img {
+      width: 85%;
+      max-width: 560px;
+      object-fit: contain;
+      opacity: 0;
+      animation: fadeIn 1.2s 0.3s forwards;
+      transition: transform 0.6s ease;
+    }
+
+    .prod-hero-right img:hover {
+      transform: scale(1.03) rotate(1deg);
+    }
+
+    .img-slot-hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .img-slot-hero i {
+      font-size: 40px;
+      color: rgba(255,255,255,0.08);
+    }
+
+    .img-slot-hero span {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      color: rgba(255,255,255,0.12);
+      text-transform: uppercase;
+    }
+
+    /* -----------------------------------------
+       SPEC STRIP
+    ----------------------------------------- */
+    .spec-strip {
+      position: relative;
+      z-index: 10;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--bdr);
+      border-bottom: 1px solid var(--bdr);
+    }
+
+    .spec-item {
+      background: var(--b);
+      padding: 40px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: background 0.25s;
+    }
+
+    .spec-item:hover { background: #0f0f0f; }
+
+    .spec-icon {
+      font-size: 20px;
+      color: var(--dim);
+      margin-bottom: 4px;
+    }
+
+    .spec-val {
+      font-weight: 700;
+      font-size: 22px;
+      letter-spacing: -0.02em;
+    }
+
+    .spec-key {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--dim);
+    }
+
+    /* -----------------------------------------
+       FEATURE SECTIONS
+    ----------------------------------------- */
+    .feature {
+      position: relative;
+      z-index: 10;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--bdr);
+    }
+
+    .feature.reverse { direction: rtl; }
+    .feature.reverse > * { direction: ltr; }
+
+    .feature-img {
+      background: #050505;
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-right: 1px solid var(--bdr);
+    }
+
+    .feature.reverse .feature-img {
+      border-right: none;
+      border-left: 1px solid var(--bdr);
+    }
+
+    .feature-img img {
+      width: 80%;
+      object-fit: contain;
+    }
+
+    .feature-img .img-slot-sm {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .feature-img .img-slot-sm i {
+      font-size: 32px;
+      color: rgba(255,255,255,0.07);
+    }
+
+    .feature-img .img-slot-sm span {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.1);
+      text-transform: uppercase;
+    }
+
+    .feature-content {
+      padding: 80px 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .feature-label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--dim);
+    }
+
+    .feature-title {
+      font-weight: 700;
+      font-size: clamp(28px, 3.5vw, 48px);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .feature-body {
+      font-size: 13px;
+      color: var(--dim2);
+      line-height: 1.85;
+      letter-spacing: 0.02em;
+      max-width: 380px;
+    }
+
+    .feature-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .pill {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--dim2);
+      border: 1px solid var(--bdr);
+      padding: 7px 14px;
+    }
+
+    /* -----------------------------------------
+       COLOURS SECTION
+    ----------------------------------------- */
+    .colours-section {
+      position: relative;
+      z-index: 10;
+      border-bottom: 1px solid var(--bdr);
+    }
+
+    .colours-header {
+      padding: 80px 56px 56px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--bdr);
+      gap: 24px;
+    }
+
+    .colours-header-left h2 {
+      font-weight: 700;
+      font-size: clamp(32px, 4vw, 52px);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .colours-header-right {
+      font-size: 13px;
+      color: var(--dim2);
+      line-height: 1.75;
+      max-width: 320px;
+      letter-spacing: 0.02em;
+    }
+
+    .colours-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--bdr);
+    }
+
+    .colour-card {
+      background: var(--b);
+      padding: 52px 44px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: background 0.3s;
+    }
+
+    .colour-card:hover { background: #0f0f0f; }
+
+    .colour-swatch-large {
+      width: 48px;
+      height: 48px;
+      border-radius: 2px;
+    }
+
+    .colour-card-name {
+      font-weight: 700;
+      font-size: 22px;
+      letter-spacing: -0.02em;
+    }
+
+    .colour-card-desc {
+      font-size: 12px;
+      color: var(--dim2);
+      line-height: 1.7;
+      letter-spacing: 0.03em;
+    }
+
+    .colour-card-hex {
+      font-size: 10px;
+      color: var(--dim);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: auto;
+    }
+
+    /* -----------------------------------------
+       FULL WIDTH PHOTO SLOT
+    ----------------------------------------- */
+    .photo-full {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      aspect-ratio: 16 / 7;
+      background: #050505;
+      border-bottom: 1px solid var(--bdr);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 14px;
+      overflow: hidden;
+    }
+
+    .photo-full img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .photo-full .img-placeholder i {
+      font-size: 36px;
+      color: rgba(255,255,255,0.07);
+    }
+
+    .photo-full .img-placeholder span {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      color: rgba(255,255,255,0.1);
+      text-transform: uppercase;
+    }
+
+    /* -----------------------------------------
+       TECH SPECS TABLE
+    ----------------------------------------- */
+    .tech-specs {
+      position: relative;
+      z-index: 10;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--bdr);
+    }
+
+    .tech-specs-left {
+      padding: 80px 56px;
+      border-right: 1px solid var(--bdr);
+    }
+
+    .tech-specs-right {
+      padding: 80px 56px;
+    }
+
+    .spec-table {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 40px;
+    }
+
+    .spec-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--bdr);
+      gap: 24px;
+    }
+
+    .spec-row:first-child { border-top: 1px solid var(--bdr); }
+
+    .spec-row-key {
+      font-size: 11px;
+      color: var(--dim);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .spec-row-val {
+      font-size: 13px;
+      color: var(--dim2);
+      letter-spacing: 0.03em;
+      text-align: right;
+    }
+
+    /* -----------------------------------------
+       BUY SECTION
+    ----------------------------------------- */
+    .buy-section {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 80px 56px;
+      border-bottom: 1px solid var(--bdr);
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .buy-section-left h2 {
+      font-weight: 700;
+      font-size: clamp(36px, 4.5vw, 64px);
+      line-height: 0.92;
+      letter-spacing: -0.04em;
+      margin-bottom: 20px;
+    }
+
+    .buy-section-left p {
+      font-size: 13px;
+      color: var(--dim2);
+      letter-spacing: 0.03em;
+      line-height: 1.7;
+      max-width: 360px;
+    }
+
+    .buy-section-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 20px;
+    }
+
+    .buy-section-price {
+      font-weight: 700;
+      font-size: 52px;
+      letter-spacing: -0.04em;
+    }
+
+    .buy-section-btn {
+      font-size: 13px;
+      color: var(--b);
+      background: var(--w);
+      border: none;
+      padding: 16px 48px;
+      letter-spacing: 0.08em;
+      cursor: none;
+      transition: opacity 0.2s;
+    }
+
+    .buy-section-btn:hover { opacity: 0.84; }
+
+    .buy-section-sub {
+      font-size: 11px;
+      color: var(--dim);
+      letter-spacing: 0.08em;
+      text-align: right;
+    }
+
+    /* -----------------------------------------
+       ANIMATIONS
+    ----------------------------------------- */
+    @keyframes ru {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    /* -----------------------------------------
+       RESPONSIVE
+    ----------------------------------------- */
+    @media (max-width: 900px) {
+      .prod-hero { grid-template-columns: 1fr; }
+      .prod-hero-left { padding: 120px 24px 60px; border-right: none; border-bottom: 1px solid var(--bdr); }
+      .prod-hero-right { min-height: 60vw; }
+      .spec-strip { grid-template-columns: 1fr 1fr; }
+      .feature { grid-template-columns: 1fr; }
+      .feature.reverse { direction: ltr; }
+      .feature-img { aspect-ratio: 16/9; border-right: none !important; border-left: none !important; border-bottom: 1px solid var(--bdr); }
+      .feature-content { padding: 56px 24px; }
+      .colours-header { padding: 56px 24px 40px; flex-direction: column; align-items: flex-start; }
+      .colours-grid { grid-template-columns: 1fr; }
+      .colour-card { padding: 40px 24px; }
+      .tech-specs { grid-template-columns: 1fr; }
+      .tech-specs-left { border-right: none; border-bottom: 1px solid var(--bdr); padding: 60px 24px; }
+      .tech-specs-right { padding: 60px 24px; }
+      .buy-section { padding: 60px 24px; flex-direction: column; align-items: flex-start; }
+      .buy-section-right { align-items: flex-start; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <canvas id="grain"></canvas>
+  <div class="o1 orb"></div>
+  <div class="o2 orb"></div>
+  <div class="o3 orb"></div>
+  <div id="cursor"></div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nl">
+      <img src="img/logoT.png" alt="Neornito">
+      <span>Neornito</span>
+    </div>
+    <ul class="nm">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nc">Shop now</button>
+  </nav>
+
+  <!-- PRODUCT HERO -->
+  <section class="prod-hero">
+    <div class="prod-hero-left">
+      <p class="prod-tag">NRN — 001 · Passive Acoustic Monitor</p>
+      <h1 class="prod-name">Sound<em>Stalker</em></h1>
+      <p class="prod-tagline">A compact, field-ready passive acoustic monitor built to capture the full human hearing spectrum. Deploy it anywhere. It listens so you don't have to.</p>
+
+      <div class="colour-wrap">
+        <p class="colour-label">Colour</p>
+        <p class="colour-selected-name" id="colourName">Marsh</p>
+        <div class="colour-swatches">
+          <div class="swatch marsh active" onclick="selectColour('Marsh', this)" title="Marsh"></div>
+          <div class="swatch dusk"  onclick="selectColour('Dusk', this)"  title="Dusk"></div>
+          <div class="swatch slate" onclick="selectColour('Slate', this)" title="Slate"></div>
+        </div>
+      </div>
+
+      <div class="buy-row">
+        <span class="buy-price">€ —,—</span>
+        <!-- Replace href with your Stripe Payment Link -->
+        <a href="#stripe-link-here" class="buy-btn">Order now</a>
+        <span class="buy-note">Free shipping<br>within EU</span>
+      </div>
+    </div>
+
+    <div class="prod-hero-right">
+      <!-- Replace with: <img src="img/soundstalker-marsh.png" alt="SoundStalker in Marsh"> -->
+      <div class="img-slot-hero">
+        <i class="ti ti-camera" aria-hidden="true"></i>
+        <span>Product render — Marsh colourway</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPEC STRIP -->
+  <div class="spec-strip">
+    <div class="spec-item">
+      <i class="ti ti-ear spec-icon" aria-hidden="true"></i>
+      <span class="spec-val">20Hz–20kHz</span>
+      <span class="spec-key">Capture range</span>
+    </div>
+    <div class="spec-item">
+      <i class="ti ti-battery spec-icon" aria-hidden="true"></i>
+      <span class="spec-val">3 × AA</span>
+      <span class="spec-key">Power source</span>
+    </div>
+    <div class="spec-item">
+      <i class="ti ti-sim-card spec-icon" aria-hidden="true"></i>
+      <span class="spec-val">SIM ready</span>
+      <span class="spec-key">Connectivity</span>
+    </div>
+    <div class="spec-item">
+      <i class="ti ti-usb spec-icon" aria-hidden="true"></i>
+      <span class="spec-val">USB-C</span>
+      <span class="spec-key">Data & charging</span>
+    </div>
+  </div>
+
+  <!-- FEATURE 1 — Passive recording -->
+  <div class="feature">
+    <div class="feature-img">
+      <!-- Replace with: <img src="img/soundstalker-detail-1.jpg" alt="SoundStalker detail"> -->
+      <div class="img-slot-sm">
+        <i class="ti ti-camera" aria-hidden="true"></i>
+        <span>Product detail photo</span>
+      </div>
+    </div>
+    <div class="feature-content">
+      <p class="feature-label">Passive recording</p>
+      <h2 class="feature-title">Always listening.<br>Never intrusive.</h2>
+      <p class="feature-body">SoundStalker captures continuous acoustic data across the full human hearing spectrum — 20Hz to 20kHz — without active intervention. Deploy it, leave it, retrieve it. No disturbance to the environment, no presence required.</p>
+      <div class="feature-pills">
+        <span class="pill">Passive operation</span>
+        <span class="pill">20Hz – 20kHz</span>
+        <span class="pill">Continuous capture</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURE 2 — Connectivity -->
+  <div class="feature reverse">
+    <div class="feature-img">
+      <!-- Replace with: <img src="img/soundstalker-detail-2.jpg" alt="SoundStalker SIM slot"> -->
+      <div class="img-slot-sm">
+        <i class="ti ti-camera" aria-hidden="true"></i>
+        <span>Connectivity detail</span>
+      </div>
+    </div>
+    <div class="feature-content">
+      <p class="feature-label">Connectivity</p>
+      <h2 class="feature-title">Connected where<br>others aren't.</h2>
+      <p class="feature-body">A built-in SIM card slot keeps SoundStalker connected even in remote deployments. Pair it with USB-C for fast data offload back at base. Three status LEDs give you instant confirmation of state without needing a screen.</p>
+      <div class="feature-pills">
+        <span class="pill">SIM card slot</span>
+        <span class="pill">USB-C</span>
+        <span class="pill">3 status LEDs</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURE 3 — Power -->
+  <div class="feature">
+    <div class="feature-img">
+      <!-- Replace with: <img src="img/soundstalker-detail-3.jpg" alt="SoundStalker battery compartment"> -->
+      <div class="img-slot-sm">
+        <i class="ti ti-camera" aria-hidden="true"></i>
+        <span>Battery detail photo</span>
+      </div>
+    </div>
+    <div class="feature-content">
+      <p class="feature-label">Power</p>
+      <h2 class="feature-title">Standard batteries.<br>Extraordinary runtime.</h2>
+      <p class="feature-body">Three AA batteries power SoundStalker through extended deployments. Use standard alkaline in a pinch or load rechargeable NiMH for long-term fieldwork. No proprietary cells, no specialist charging — just batteries you can find anywhere on earth.</p>
+      <div class="feature-pills">
+        <span class="pill">3 × AA</span>
+        <span class="pill">NiMH compatible</span>
+        <span class="pill">Field-replaceable</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FULL WIDTH PHOTO SLOT -->
+  <div class="photo-full">
+    <!-- Replace with: <img src="img/soundstalker-field.jpg" alt="SoundStalker in the field"> -->
+    <div class="img-placeholder">
+      <i class="ti ti-photo" aria-hidden="true"></i>
+      <span>Full-width field photo — SoundStalker deployed</span>
+    </div>
+  </div>
+
+  <!-- COLOURS -->
+  <section class="colours-section">
+    <div class="colours-header">
+      <div class="colours-header-left">
+        <p class="section-label" style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--dim);margin-bottom:20px">Colourways</p>
+        <h2>Three finishes.<br>One purpose.</h2>
+      </div>
+      <p class="colours-header-right">Each SoundStalker colourway is designed to blend into a specific environment. Choose based on your deployment context — not just aesthetics.</p>
+    </div>
+    <div class="colours-grid">
+      <div class="colour-card">
+        <div class="colour-swatch-large" style="background:#6b7c5a"></div>
+        <div class="colour-card-name">Marsh</div>
+        <p class="colour-card-desc">Muted olive green — disappears into wetlands, grasslands, and dense undergrowth. Ideal for long-term unattended deployments where low visibility matters.</p>
+        <span class="colour-card-hex">Olive green finish</span>
+      </div>
+      <div class="colour-card">
+        <div class="colour-swatch-large" style="background:#8c7355"></div>
+        <div class="colour-card-name">Dusk</div>
+        <p class="colour-card-desc">Warm khaki brown — suited to woodland floors, rocky terrain, and dry environments. Minimal visual signature at twilight and dawn.</p>
+        <span class="colour-card-hex">Khaki brown finish</span>
+      </div>
+      <div class="colour-card">
+        <div class="colour-swatch-large" style="background:#7a7a7a"></div>
+        <div class="colour-card-name">Slate</div>
+        <p class="colour-card-desc">Cool mid-grey — versatile across urban monitoring, coastal rocks, and mixed terrain. The neutral choice for multi-environment research.</p>
+        <span class="colour-card-hex">Mid grey finish</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH SPECS -->
+  <section class="tech-specs">
+    <div class="tech-specs-left">
+      <p class="section-label" style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--dim);margin-bottom:20px">Specifications</p>
+      <h2 style="font-weight:700;font-size:clamp(28px,3.5vw,48px);line-height:1;letter-spacing:-0.03em">Every detail,<br>accounted for.</h2>
+      <div class="spec-table">
+        <div class="spec-row">
+          <span class="spec-row-key">Type</span>
+          <span class="spec-row-val">Passive Acoustic Monitor</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-row-key">Frequency range</span>
+          <span class="spec-row-val">20 Hz – 20 kHz</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-row-key">Power</span>
+          <span class="spec-row-val">3 × AA (alkaline / NiMH)</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-row-key">Connectivity</span>
+          <span class="spec-row-val">SIM card · USB-C</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-row-key">Indicators</span>
+          <span class="spec-row-val">3 × functional LED</span>
+        </div>
+      </div>
+    </div>
+    <div class="tech-specs-right">
+      <p class="section-label" style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--dim);margin-bottom:20px">&nbsp;</p>
+      <h2 style="font-weight:700;font-size:clamp(28px,3.5vw,48px);line-height:1;letter-spacing:-0.03em;opacity:0">&nbsp;</h2>
+      <div class="spec-table">
+        <div class="spec-row">
+          <span class="spec-row-key">Colourways</span>
+          <span class="spec-row-val">Marsh · Dusk · Slate</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-row-key">Data transfer</span>
+          <span class="spec-row-val">USB-C · SIM (remote)</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-row-key">Form factor</span>
+          <span class="spec-row-val">Compact · field-deployable</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-row-key">Origin</span>
+          <span class="spec-row-val">Wrocław, Poland</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-row-key">Product code</span>
+          <span class="spec-row-val">NRN — 001</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUY -->
+  <section class="buy-section">
+    <div class="buy-section-left">
+      <h2>Ready to deploy<br><em style="font-style:normal;color:transparent;-webkit-text-stroke:1px rgba(245,245,240,0.2)">SoundStalker?</em></h2>
+      <p>Ships within 5 working days. Free shipping across the EU. Questions before ordering — <a href="contact.html" style="color:var(--w)">get in touch</a>.</p>
+    </div>
+    <div class="buy-section-right">
+      <span class="buy-section-price">€ —,—</span>
+      <!-- Replace href with your Stripe Payment Link -->
+      <a href="#stripe-link-here" class="buy-section-btn">Order SoundStalker</a>
+      <span class="buy-section-sub">Free EU shipping · Secure checkout</span>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="ftop">
+      <div class="fcol fcol--brand">
+        <div class="flogo">
+          <img src="img/logoT.png" alt="Neornito">
+          <span>Neornito</span>
+        </div>
+        <p class="fdesc">Wildlife research equipment. Built for the field, not the catalogue.</p>
+      </div>
+      <div class="fcol">
+        <p class="fhead">Navigate</p>
+        <div class="flinks">
+          <a href="index.html">Home</a>
+          <a href="products.html">Products</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div class="fcol">
+        <p class="fhead">Legal</p>
+        <div class="flinks">
+          <a href="privacy.html">Privacy policy</a>
+          <a href="shipping.html">Shipping &amp; returns</a>
+          <a href="terms.html">Terms of service</a>
+        </div>
+      </div>
+      <div class="fcol">
+        <p class="fhead">Socials</p>
+        <div class="fsocials">
+          <a href="#"><i class="ti ti-brand-instagram" aria-hidden="true"></i> Instagram</a>
+          <a href="#"><i class="ti ti-brand-linkedin" aria-hidden="true"></i> LinkedIn</a>
+          <a href="#"><i class="ti ti-brand-x" aria-hidden="true"></i> X / Twitter</a>
+          <a href="https://www.facebook.com/profile.php?id=61590666307352" target="_blank"><i class="ti ti-brand-facebook" aria-hidden="true"></i> Facebook</a>
+        </div>
+      </div>
+    </div>
+    <div class="fbot">
+      <span class="fcopy"><span class="fdot"></span>© 2026 Neornito. All rights reserved.</span>
+      <span class="fcopy">Wrocław, Poland · neornito.com</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    function selectColour(name, el) {
+      document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+      el.classList.add('active');
+      document.getElementById('colourName').textContent = name;
+    }
+  </script>
+</body>
+</html>
