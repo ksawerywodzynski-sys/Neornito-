@@ -162,13 +162,14 @@
     }
 
     .prod-hero-right img {
-      width: 85%;
-      max-width: 560px;
-      object-fit: contain;
-      opacity: 0;
-      animation: fadeIn 1.2s 0.3s forwards;
-      transition: transform 0.6s ease;
-    }
+  width: 85%;
+  max-width: 560px;
+  object-fit: contain;
+  opacity: 0;
+  animation: fadeIn 1.2s 0.3s forwards;
+  transition: transform 0.6s ease;
+  mix-blend-mode: lighten;
+}
 
     .prod-hero-right img:hover {
       transform: scale(1.03) rotate(1deg);
@@ -266,9 +267,10 @@
     }
 
     .feature-img img {
-      width: 80%;
-      object-fit: contain;
-    }
+  width: 80%;
+  object-fit: contain;
+  mix-blend-mode: lighten;
+}
 
     .feature-img .img-slot-sm {
       display: flex;
