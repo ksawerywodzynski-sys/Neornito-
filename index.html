@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Neornito — Avian & Wildlife Research</title>
+  <meta name="description" content="Neornito is an independent wildlife research organisation studying birds and their habitats through field science, open data and purpose-built instruments.">
+  <meta name="theme-color" content="#0b0c0d">
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Neornito — Avian & Wildlife Research">
+  <meta property="og:description" content="Field science, open data and instruments for understanding birds and the ecosystems they hold together.">
+  <meta property="og:image" content="assets/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Reusable logo mark -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="mark" viewBox="0 0 100 100">
+      <path d="M16 82 L46 54 L46 36 Q46 27 55 25 L82 18 L69 31 L67 58 L57 66 L67 73"
+            fill="none" stroke="currentColor" stroke-width="7" stroke-linejoin="miter" stroke-linecap="square"/>
+    </symbol>
+  </svg>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a href="#top" class="brand" aria-label="Neornito home">
+        <svg class="brand-mark" aria-hidden="true"><use href="#mark"/></svg>
+        <span class="brand-name">neornito</span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#instruments">Instruments</a></li>
+          <li><a href="#data">Open Data</a></li>
+          <li><a href="#journal">Field Journal</a></li>
+        </ul>
+        <a href="#contact" class="btn btn-light nav-cta">Get in touch</a>
+      </nav>
+
+      <button class="nav-toggle" aria-controls="nav" aria-expanded="false" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="blob blob-green"></div>
+        <div class="blob blob-amber"></div>
+        <div class="blob blob-bone"></div>
+      </div>
+      <div class="grain" aria-hidden="true"></div>
+
+      <div class="container hero-inner">
+        <p class="eyebrow reveal"><span class="dot"></span> Independent avian research · Est. 2026</p>
+        <h1 id="hero-title" class="hero-title reveal">
+          Clarity in the <em>complexity</em><br> of living systems.
+        </h1>
+        <p class="hero-lead reveal">
+          Neornito studies birds and the habitats they hold together — combining long-term
+          fieldwork, precise instruments and open data to make ecological change legible.
+        </p>
+        <div class="hero-actions reveal">
+          <a href="#research" class="btn btn-light">Explore our research</a>
+          <a href="#data" class="btn btn-ghost">Browse open data <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+
+      <div class="container hero-meta" aria-hidden="true">
+        <span class="mono">51.1079° N, 17.0385° E</span>
+        <span class="mono">Scroll</span>
+        <span class="mono">Neornithes / Aves</span>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <div class="container grid-2">
+        <div>
+          <p class="section-label reveal">01 — About</p>
+          <h2 id="about-title" class="section-title reveal">
+            Named for <em>Neornithes</em> — every bird alive today.
+          </h2>
+        </div>
+        <div class="about-body reveal">
+          <p>
+            Birds are among the most sensitive indicators of environmental health. When
+            migration timing drifts, when populations thin, the landscape is telling us something.
+          </p>
+          <p>
+            We are a research organisation built around three commitments: rigorous field
+            science, instruments designed for the realities of wild places, and data that
+            anyone can inspect, reuse and challenge.
+          </p>
+          <ul class="values">
+            <li><span class="mono">A</span> Evidence over assumption</li>
+            <li><span class="mono">B</span> Minimal disturbance in the field</li>
+            <li><span class="mono">C</span> Open by default</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="container stats" role="list">
+        <div class="stat reveal" role="listitem">
+          <span class="stat-num" data-count="142">142</span>
+          <span class="stat-label">Species monitored</span>
+        </div>
+        <div class="stat reveal" role="listitem">
+          <span class="stat-num" data-count="38">38</span>
+          <span class="stat-label">Active field sites</span>
+        </div>
+        <div class="stat reveal" role="listitem">
+          <span class="stat-num" data-count="1.2" data-decimals="1" data-suffix="M">1.2M</span>
+          <span class="stat-label">Observations logged</span>
+        </div>
+        <div class="stat reveal" role="listitem">
+          <span class="stat-num" data-count="100" data-suffix="%">100%</span>
+          <span class="stat-label">Datasets openly licensed</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RESEARCH ============ -->
+    <section class="section research" id="research" aria-labelledby="research-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-label reveal">02 — Research</p>
+          <h2 id="research-title" class="section-title reveal">Areas of <em>inquiry</em></h2>
+          <p class="section-intro reveal">Four long-term programmes, each designed to run for a decade or more.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card reveal">
+            <div class="card-media media-feather" aria-hidden="true"></div>
+            <div class="card-body">
+              <span class="mono card-index">R/01</span>
+              <h3>Migration & Movement</h3>
+              <p>Tracking routes, stopover sites and shifting timing across the flyways of Central Europe.</p>
+            </div>
+          </article>
+          <article class="card reveal">
+            <div class="card-media media-moss" aria-hidden="true"></div>
+            <div class="card-body">
+              <span class="mono card-index">R/02</span>
+              <h3>Habitat & Ecosystems</h3>
+              <p>Measuring how wetlands, forests and farmland support — or fail — breeding populations.</p>
+            </div>
+          </article>
+          <article class="card reveal">
+            <div class="card-media media-amber" aria-hidden="true"></div>
+            <div class="card-body">
+              <span class="mono card-index">R/03</span>
+              <h3>Acoustic Ecology</h3>
+              <p>Passive sound monitoring to census species and understand communication in changing soundscapes.</p>
+            </div>
+          </article>
+          <article class="card reveal">
+            <div class="card-media media-slate" aria-hidden="true"></div>
+            <div class="card-body">
+              <span class="mono card-index">R/04</span>
+              <h3>Population Health</h3>
+              <p>Long-term demographic and health data to detect decline early and guide conservation action.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INSTRUMENTS ============ -->
+    <section class="section instruments" id="instruments" aria-labelledby="instruments-title">
+      <div class="container grid-2 align-center">
+        <div class="instrument-visual reveal" aria-hidden="true">
+          <div class="device">
+            <div class="device-slot"></div>
+            <div class="device-lens"></div>
+            <div class="device-ring"></div>
+            <div class="device-slot"></div>
+          </div>
+          <div class="grain"></div>
+        </div>
+        <div>
+          <p class="section-label reveal">03 — Instruments</p>
+          <h2 id="instruments-title" class="section-title reveal">Built for the <em>field</em>, not the lab.</h2>
+          <p class="reveal">
+            We design our own low-impact sensors: lightweight, weather-sealed and quiet enough
+            to disappear into a habitat. Every device is documented and its hardware specs are published.
+          </p>
+          <dl class="spec-list reveal">
+            <div><dt>Acoustic recorder</dt><dd>12-month autonomy · 96 kHz</dd></div>
+            <div><dt>Micro GPS tag</dt><dd>&lt; 1.8 g · solar assisted</dd></div>
+            <div><dt>Nest-box sensor</dt><dd>Temp · humidity · activity</dd></div>
+            <div><dt>Station hub</dt><dd>LoRa mesh · IP67</dd></div>
+          </dl>
+          <a href="#contact" class="btn btn-ghost reveal">Request technical docs <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ OPEN DATA ============ -->
+    <section class="section data" id="data" aria-labelledby="data-title">
+      <div class="data-bg" aria-hidden="true"></div>
+      <div class="grain" aria-hidden="true"></div>
+      <div class="container data-inner">
+        <p class="section-label reveal">04 — Open Data</p>
+        <h2 id="data-title" class="section-title reveal">Our observations belong to <em>everyone</em>.</h2>
+        <p class="section-intro reveal">
+          All datasets are released under CC BY 4.0 with full methodology, so researchers,
+          policymakers and educators can build on them.
+        </p>
+
+        <div class="dataset-table reveal" role="table" aria-label="Recent datasets">
+          <div class="row row-head" role="row">
+            <span role="columnheader">Dataset</span>
+            <span role="columnheader">Programme</span>
+            <span role="columnheader">Records</span>
+            <span role="columnheader">Updated</span>
+          </div>
+          <a class="row" role="row" href="#">
+            <span role="cell">Spring passage counts, Oder valley</span>
+            <span role="cell" class="mono">R/01</span>
+            <span role="cell" class="mono">48,210</span>
+            <span role="cell" class="mono">Sep 2026</span>
+          </a>
+          <a class="row" role="row" href="#">
+            <span role="cell">Wetland dawn chorus archive</span>
+            <span role="cell" class="mono">R/03</span>
+            <span role="cell" class="mono">9,874</span>
+            <span role="cell" class="mono">Aug 2026</span>
+          </a>
+          <a class="row" role="row" href="#">
+            <span role="cell">Nest-box occupancy & success</span>
+            <span role="cell" class="mono">R/04</span>
+            <span role="cell" class="mono">3,122</span>
+            <span role="cell" class="mono">Jul 2026</span>
+          </a>
+        </div>
+        <a href="#" class="btn btn-light reveal">View all datasets</a>
+      </div>
+    </section>
+
+    <!-- ============ JOURNAL ============ -->
+    <section class="section journal" id="journal" aria-labelledby="journal-title">
+      <div class="container">
+        <div class="section-head section-head-row">
+          <div>
+            <p class="section-label reveal">05 — Field Journal</p>
+            <h2 id="journal-title" class="section-title reveal">Notes from the <em>field</em></h2>
+          </div>
+          <a href="#" class="btn btn-ghost reveal">All entries <span aria-hidden="true">→</span></a>
+        </div>
+
+        <div class="posts">
+          <article class="post reveal">
+            <div class="post-media media-feather" aria-hidden="true"></div>
+            <div class="post-meta mono"><span>Fieldwork</span><time datetime="2026-09-14">14 Sep 2026</time></div>
+            <h3><a href="#">What the autumn crane passage is telling us this year</a></h3>
+          </article>
+          <article class="post reveal">
+            <div class="post-media media-slate" aria-hidden="true"></div>
+            <div class="post-meta mono"><span>Instruments</span><time datetime="2026-08-30">30 Aug 2026</time></div>
+            <h3><a href="#">Designing a recorder that survives a Polish winter</a></h3>
+          </article>
+          <article class="post reveal">
+            <div class="post-media media-amber" aria-hidden="true"></div>
+            <div class="post-meta mono"><span>Open Data</span><time datetime="2026-08-02">02 Aug 2026</time></div>
+            <h3><a href="#">Releasing our first acoustic archive — and how to use it</a></h3>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PARTNERS ============ -->
+    <section class="section partners" aria-labelledby="partners-title">
+      <div class="container">
+        <h2 id="partners-title" class="section-label center">In collaboration with</h2>
+        <ul class="partner-list">
+          <li>Partner University</li>
+          <li>National Park</li>
+          <li>Conservation Trust</li>
+          <li>Research Council</li>
+          <li>Citizen Science Network</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="container grid-2">
+        <div>
+          <p class="section-label reveal">06 — Contact</p>
+          <h2 id="contact-title" class="section-title reveal">Collaborate, fund or <em>join</em> us.</h2>
+          <p class="reveal">
+            We work with universities, conservation bodies, landowners and volunteers.
+            Tell us what you have in mind.
+          </p>
+          <ul class="contact-details reveal">
+            <li><span class="mono">Email</span><a href="mailto:hello@neornito.org">hello@neornito.org</a></li>
+            <li><span class="mono">Base</span>Wrocław, Poland</li>
+          </ul>
+        </div>
+
+        <form class="form reveal" id="contact-form" novalidate>
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required>
+            <span class="error" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+            <span class="error" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="topic">Topic</label>
+            <select id="topic" name="topic">
+              <option>Research collaboration</option>
+              <option>Funding & partnerships</option>
+              <option>Data access</option>
+              <option>Volunteering</option>
+              <option>Press</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <span class="error" aria-live="polite"></span>
+          </div>
+          <label class="check">
+            <input type="checkbox" name="consent" required>
+            <span>I agree to Neornito storing my details to respond to this enquiry.</span>
+          </label>
+          <button type="submit" class="btn btn-light">Send message</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-top">
+      <div class="footer-brand">
+        <a href="#top" class="brand" aria-label="Back to top">
+          <svg class="brand-mark" aria-hidden="true"><use href="#mark"/></svg>
+          <span class="brand-name">neornito</span>
+        </a>
+        <p>Avian & wildlife research.<br>Field science, open data, honest instruments.</p>
+      </div>
+
+      <div class="footer-cols">
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#instruments">Instruments</a></li>
+            <li><a href="#journal">Field Journal</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#data">Open Data</a></li>
+            <li><a href="#">Publications</a></li>
+            <li><a href="#">Press kit</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Newsletter</h4>
+          <p class="small">Seasonal field notes, four times a year.</p>
+          <form class="newsletter" id="newsletter-form" novalidate>
+            <label for="nl-email" class="visually-hidden">Email address</label>
+            <input id="nl-email" type="email" placeholder="you@example.com" required>
+            <button type="submit" aria-label="Subscribe">→</button>
+          </form>
+          <p class="newsletter-status small" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <span>© <span id="year">2026</span> Neornito. All rights reserved.</span>
+      <ul class="legal">
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Imprint</a></li>
+        <li><a href="#">Accessibility</a></li>
+      </ul>
+      <ul class="social">
+        <li><a href="#" aria-label="Instagram">IG</a></li>
+        <li><a href="#" aria-label="LinkedIn">IN</a></li>
+        <li><a href="#" aria-label="Mastodon">MA</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="main.js" defer></script>
+</body>
+</html>
